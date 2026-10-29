@@ -1,0 +1,5 @@
+require("conf.options")
+require("conf.keymap")
+require("conf.lazy_init")
+require("conf.ui").setup()
+require("conf.diagnostics").setup()
