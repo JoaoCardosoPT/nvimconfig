@@ -7,8 +7,8 @@ local function decorate()
   vim.wo.signcolumn = "no"
   vim.wo.cursorline = false
   vim.wo.winfixheight = true
-  vim.wo.winhighlight = "Normal:ReferenceTerminal,NormalNC:ReferenceTerminal,EndOfBuffer:ReferenceTerminal"
-  vim.wo.statusline = "%#ReferenceTerminalMode# TERMINAL %#ReferenceTerminalArrow#%#StatusLine# %{fnamemodify(&shell, ':t')}%=%p%% %#ReferenceTerminalMode# %l:%c "
+  vim.wo.winhighlight = ""
+  vim.wo.statusline = " TERMINAL %{fnamemodify(&shell, ':t')} %= %l:%c "
 end
 function M.toggle()
   if terminal_buf and vim.api.nvim_buf_is_valid(terminal_buf) then
@@ -44,7 +44,8 @@ function M.setup()
   vim.api.nvim_create_autocmd("TermOpen", {
     group = group,
     callback = function()
-      vim.b.terminal_color_background = "#262626"
+      local normal = vim.api.nvim_get_hl(0, { name = "Normal", link = false })
+      vim.b.terminal_color_background = normal.bg and string.format("#%06x", normal.bg) or nil
       decorate()
     end,
   })

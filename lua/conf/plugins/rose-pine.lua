@@ -4,8 +4,8 @@ return {
   lazy = false,
   priority = 1000,
   opts = {
-    variant = "moon",
-    styles = { italic = false, transparency = true },
+    variant = "main",
+    styles = { italic = true, transparency = true },
     highlight_groups = {
       Cursor = { fg = "base", bg = "text" },
     },

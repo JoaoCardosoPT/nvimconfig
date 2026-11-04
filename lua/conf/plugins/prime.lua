@@ -89,11 +89,12 @@ return {
   { "leoluz/nvim-dap-go", ft = "go", dependencies = { "mfussenegger/nvim-dap" }, opts = {} },
   {
     "nvim-neotest/neotest",
-    dependencies = { "nvim-neotest/nvim-nio", "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter", "fredrikaverpil/neotest-golang", "marilari88/neotest-vitest" },
+    dependencies = { "nvim-neotest/nvim-nio", "nvim-lua/plenary.nvim", "nvim-treesitter/nvim-treesitter", "fredrikaverpil/neotest-golang", "marilari88/neotest-vitest", "nvim-neotest/neotest-plenary" },
     config = function()
-      require("neotest").setup({ adapters = { require("neotest-golang")({}), require("neotest-vitest")({}) } })
+      require("neotest").setup({ adapters = { require("neotest-golang")({}), require("neotest-vitest")({}), require("neotest-plenary").setup({}) } })
     end,
     keys = {
+      { "<leader>tc", function() require("neotest").run.run() end, desc = "Run nearest test" },
       { "<leader>tr", function() require("neotest").run.run() end, desc = "Run nearest test" },
       { "<leader>tf", function() require("neotest").run.run(vim.fn.expand("%")) end, desc = "Run file tests" },
       { "<leader>tv", function() require("neotest").summary.toggle() end, desc = "Test summary" },

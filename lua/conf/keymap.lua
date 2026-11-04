@@ -50,3 +50,8 @@ map("x", "<leader>p", '"_dP', opts)
 map({ "n", "v" }, "<leader>y", '"+y', opts)
 map("n", "<leader>Y", '"+Y', opts)
 map({ "n", "v" }, "<leader>d", '"_d', opts)
+
+map("n", "<leader>mr", "<cmd>CellularAutomaton make_it_rain<cr>", opts)
+map("n", "<leader>zZ", function()
+  require("zen-mode").toggle({ window = { width = 80, options = { number = false, relativenumber = false, colorcolumn = "" } } })
+end, { desc = "Narrow Zen mode" })
