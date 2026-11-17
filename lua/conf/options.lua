@@ -7,7 +7,6 @@ local options = {
   cursorline = false,
   expandtab = true,
   fileencoding = "utf-8",
-  guifont = "JetBrainsMono Nerd Font Mono:h24",
   guicursor = "a:block-Cursor-blinkon0",
   smoothscroll = false,
   hlsearch = false,

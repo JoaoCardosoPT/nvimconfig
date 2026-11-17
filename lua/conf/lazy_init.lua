@@ -26,6 +26,7 @@ require("lazy").setup({
     { import = "conf.plugins" },
   },
   install = { colorscheme = { "vim" } },
+  rocks = { enabled = false }, -- No configured plugins require LuaRocks.
   checker = { enabled = false },
   change_detection = { notify = false },
 })

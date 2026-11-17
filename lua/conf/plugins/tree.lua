@@ -11,22 +11,28 @@ return {
       disable_netrw = true,
       hijack_netrw = true,
       hijack_cursor = true,
-      view = { width = 30, side = "left", signcolumn = "no" },
+      view = { width = "31%", side = "left", signcolumn = "no" },
       renderer = {
         root_folder_label = ":~",
-        highlight_git = "name",
+        add_trailing = true,
+        highlight_git = "none",
         indent_markers = { enable = false },
         icons = {
           git_placement = "before",
-          -- Consistent outline glyphs instead of colorful file-type logos.
+          -- The reference uses plain filenames and small folder triangles.
           web_devicons = { file = { enable = false }, folder = { enable = false } },
+          show = {
+            file = false, folder = false, folder_arrow = true,
+            git = false, modified = false, hidden = false,
+            diagnostics = false, bookmarks = false,
+          },
           glyphs = {
             default = "",
             symlink = "",
             bookmark = "",
             modified = "○",
             folder = {
-              arrow_closed = "", arrow_open = "",
+              arrow_closed = "▸", arrow_open = "▾",
               default = "", open = "",
               empty = "", empty_open = "",
               symlink = "", symlink_open = "",
